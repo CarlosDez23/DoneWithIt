@@ -99,33 +99,97 @@ export default function App() {
 
     <View
       style={{
-        backgroundColor: "#fff",
-        //Flex 1 la vista coje todo el espacio libre disponible y así
-        //Si pones 0.5 entonces es la mitad de la pantalla
-        flex: 1,
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: "dodgerblue",
-          flex: 1,
-        }}
         //Este es el contenedor principal, que tiene dentro otras 3 vistas
         //Las 3 vistas tienen flex 1 por lo que ocuparan cada una un tercio
         //de la pantalla, si aumentamos alguna a 2, la pantalla se dividirá en
         //cuatro partes, ocupando la vista aumentada el doble de lo que
         //ocupan las otras 2 ya que --> 2 + 1 + 1 = 4
+        backgroundColor: "#fff",
+        //Flex 1 la vista coje todo el espacio libre disponible y así
+        //Si pones 0.5 entonces es la mitad de la pantalla
+        flex: 1,
+        flexDirection: "row",
+
+        //row-reverse para ponerlo al revés (parte desde la esquina superior derecha)
+        //column-reverse para ponerlo en columna desde abajo
+
+        justifyContent: "center",
+        //alineamos elemento entorno al eje primario, que está definido en la dirección
+        //de flex. Si la dirección es horizontal, alineamos horizontalmente
+        //si el flexDirection es column, alineamos en torno al eje vertical
+        // tipos:
+        // center --> en el centro del eje principal
+        // flex-end --> al final del eje principal
+        // flex-start --> al principo del eje principal
+        // para distribuir el espacio con justifyContent:
+        // space-around --> el espacio no se distribuye igual entre los items
+        // space-evenly --> el espacio se distribuye igual entre los items
+        // space-between --> el espacio se produce entre los items
+
+        alignItems: "center",
+        //Alineamos los itemos entorno al eje secundario, en este caso el vertical
+        //porque la dirección del flex es row (horizontal)
+        //tipos:
+        // center --> en el centro del eje secundario
+        // baseline --> alineamos los ítems conforme a su base
+        // flex-end --> al final del eje secundario, en este caso como es vertical, abajo de la pantalla
+        // flex-start --> al principio del eje secundario
+        // stretch --> la vista ocupará todo el eje secundario
+
+        // WRAPPING
+        //flexWrap: "wrap",
+        //Cuando utilizamos wrap, alignItems se comporta de una forma diferente
+        //por lo que utilizamos align-content
+        //alignContent: "center",
+        //Align items dtermina el alineamiento de los items dentro de cada línea,
+        //mientras que alignContent determina el alineamiento de TODO el contenido
+        //solo se utiliza alignContent cuando utilizamos wrapping
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          //alignSelf: "flex-start",
+          //Alignself funciona igual que alignItems (tiene las mismas propiedades)
+          //pero solo posiciona el ítem que nosotros queramos, ya que con alignItems
+          //movemos todos los ítems que haya dentro de un contenedor
+
+          //flexBasis: 100,
+          //Con esta propiedad damos altura (si el eje principal es el vertical) o anchura
+          //(si el eje principal es el horizontal) a un elemento. Por lo que en este caso es
+          //lo mismo que width : 100
+          //flexGrow: 1,
+          //FlexGrow --> es igual que flex
+
+          //Si algo se está saliendo de la pantalla coje el elemento que más espacio esté ocupando
+          //dentro del contenedor y lo adapta para que los elementos que estén fuera de la pantalla
+          //sean visibles. Es lo mismo que establecer flex con un número negativo
+          //flexShrink: 1,
+        }}
       ></View>
       <View
         style={{
           backgroundColor: "gold",
-          flex: 1,
+          width: 100,
+          height: 100,
+          top: 20,
+          left: 20,
+          //Con estas propiedades de top, left etc, movemos un ítem sin afectar a la posición
+          //de los demás ítems. Esto es así porque en react native todos los elementos tienen
+          //posicionamiento relativo por defecto
+          //Propiedad del posicionamiento
+          position: "relative",
+          //Si la cambiamos a absoluta, se va a posicionar sobre el contenedor padre y los otros
+          //elementos si que se van a mover a ocupar su espacio
         }}
       ></View>
       <View
         style={{
           backgroundColor: "tomato",
-          flex: 1,
+          width: 100,
+          height: 100,
         }}
       ></View>
     </View>
