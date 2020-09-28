@@ -1,13 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-//Sin llaves porque hemos utilizado import default
-import AppText from "./app/components/AppText";
+import { AppText } from "./app/components/AppText";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <AppText> Hola React Native</AppText>
+      <AppText /*Podemos encapsular estilos de texto u otros ocmponentes*/>
+        Hola react native
+      </AppText>
     </View>
   );
 }

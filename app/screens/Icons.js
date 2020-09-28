@@ -1,13 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-//Sin llaves porque hemos utilizado import default
-import AppText from "./app/components/AppText";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+//Añadiendo iconos, importamos el paquete que queramos y luego ajustamos propiedades en el icono
 export default function App() {
   return (
     <View style={styles.container}>
-      <AppText> Hola React Native</AppText>
+      <MaterialCommunityIcons name="email" size={60} color="dodgerblue" />
     </View>
   );
 }
